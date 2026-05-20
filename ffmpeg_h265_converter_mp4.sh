@@ -3,6 +3,8 @@
 input_format="mp4"
 datasaved=0
 SECONDS=0
+number_files_converted=0
+
 for file in *."$input_format"; do
 
   base_name=$(basename "$file" .$input_format)
@@ -31,10 +33,10 @@ for file in *."$input_format"; do
   printf "\n"
 
   rm "$file"
-
+  number_files_converted++
 done
 
 echo -n "Total saved is "
 echo $datasaved | numfmt --to iec
 duration=$SECONDS
-echo "$((duration / 60)) minutes and $((duration % 60)) seconds elapsed."
+echo "$((duration / 60)) minutes and $((duration % 60)) seconds elapsed for $number_files_converted files converted."
