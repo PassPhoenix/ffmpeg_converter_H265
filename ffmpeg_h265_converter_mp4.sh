@@ -33,7 +33,7 @@ for file in *."$input_format"; do
   printf "\n"
 
   rm "$file"
-  number_files_converted++
+  ((number_files_converted++))
 done
 
 echo -n "Total saved is "
